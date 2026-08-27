@@ -23,8 +23,9 @@ def test_health_and_predict(tmp_path):
     os.environ["CHECKPOINT_PATH"] = str(checkpoint_path)
 
     sys.modules.pop("serve", None)
-    import serve
     from fastapi.testclient import TestClient
+
+    import serve
 
     with TestClient(serve.app) as client:
         health_response = client.get("/health")

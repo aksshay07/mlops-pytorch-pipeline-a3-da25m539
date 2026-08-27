@@ -43,7 +43,7 @@ def health():
 
 
 @app.post("/predict")
-async def predict(image: UploadFile = File(...)):
+async def predict(image: UploadFile = File(...)):  # noqa: B008
     if model is None:
         raise HTTPException(status_code=503, detail="model not loaded")
 

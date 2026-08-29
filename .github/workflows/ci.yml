@@ -20,8 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install ruff pytest
-          if [ -f requirements/train.txt ]; then pip install -r requirements/train.txt; fi
+          pip install ruff pytest httpx
+          pip install -r requirements/train.txt
+          pip install -r requirements/serve.txt
 
       - name: Lint with ruff
         run: ruff check src/ tests/

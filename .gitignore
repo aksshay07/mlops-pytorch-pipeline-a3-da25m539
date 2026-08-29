@@ -37,3 +37,6 @@ htmlcov/
 
 # Kubernetes local state
 *.kubeconfig
+
+# Local test fixtures
+test_image.png

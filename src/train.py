@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 import torch
@@ -69,6 +70,10 @@ def evaluate(
 
 
 def main():
+    num_threads = os.environ.get("TORCH_NUM_THREADS")
+    if num_threads:
+        torch.set_num_threads(int(num_threads))
+
     config_path = Path("/app/configs/training_config.yaml")
     if not config_path.exists():
         config_path = Path("configs/training_config.yaml")
